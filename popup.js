@@ -4,7 +4,7 @@ document.addEventListener(
     const bg = chrome.extension.getBackgroundPage();
     bg.tabs.forEach(function (url) {
       const div = document.createElement("div");
-      div.textContent = urlParser(url);
+      div.textContent = url;
       document.body.appendChild(div);
     });
     // document.querySelector("button").addEventListener("click", onclick, false);
@@ -24,18 +24,4 @@ document.addEventListener(
   false
 );
 
-function urlParser(unparsedUrl) 
-{
-    let parsedUrl = '';
-    let count = 0;
-    for (let char of unparsedUrl)
-    {
-      if(char == '/')
-        count++;
-      
-      if(count > 2)
-        break;
-      parsedUrl+=char;
-    }
-    return parsedUrl;
-};
+
