@@ -27,3 +27,18 @@ chrome.browserAction.onClicked.addListener(function (tab) {
   chrome.tabs.create({ url: "popup.html" });
 });
 
+function urlParser(unparsedUrl) 
+{
+    let parsedUrl = '';
+    let count = 0;
+    for (let char of unparsedUrl)
+    {
+      if(char == '/')
+        count++;
+      
+      if(count > 2)
+        break;
+      parsedUrl+=char;
+    }
+    return parsedUrl;
+};
